@@ -1,0 +1,23 @@
+This server is built on the Pretendo Network NEX stack:
+
+  - github.com/PretendoNetwork/nex-go
+  - github.com/PretendoNetwork/nex-protocols-go
+  - github.com/PretendoNetwork/nex-protocols-common-go
+  - github.com/PretendoNetwork/plogger-go
+
+all licensed under the GNU Affero General Public License v3.0.
+
+internal/nex-protocols-common-go-patch/ is a vendored fork of
+nex-protocols-common-go with local DataStore changes (an S3 presigner and
+adjusted DataStore method behaviour). It keeps its own upstream AGPL-3.0
+LICENSE.
+
+The matchmaking.* / tracking.* PostgreSQL schema in database/init_postgres.go
+is hand-authored from that library's SQL (the library expects the schema to
+exist and never creates it) - see docs/matchmaking-schema.md.
+
+The Sochi 2014 NEX configuration (game server ID 10106900, access key
+585214a5, NEX 3.4.7 with the MatchMaking library pinned to 3.3.0 and Ranking
+bumped to 3.6.0) comes from the public kinnay.github.io Wii U NEX database
+and was cross-checked against real console captures. No proprietary Nintendo
+or SEGA code or assets are included.
